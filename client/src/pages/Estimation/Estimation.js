@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import Layout from "../../layout/Layout";
 import { useLocation } from "react-router-dom";
-import CardEstimation from "../../components/CardEstimation/CardEstimation";
+import CardEstimation from "../../components/Card/CardEstimation";
 import {useDispatch, useSelector} from "react-redux";
 import {getInstallmentsFilter, getInstallmentsRecommendation} from "../../store/actions/installmentAction";
 const Estimation = () => {

@@ -4,7 +4,7 @@ import "../../components//Carousel/Carousel";
 import Carousel from "../../components//Carousel/Carousel";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import { addToCart } from "../../store/actions/cartAction";
+import {addToCart} from "../../store/actions/cartAction";
 import {loginUserSuccess} from "../../store/reducers/authReducer";
 import {useDispatch} from "react-redux";
 import Pagination from "../../components/Pagination/Pagination";
@@ -32,10 +32,7 @@ const Home = () => {
     useEffect(() => {
         const fetchAccessToken = async () => {
             const accessToken = Cookies.get('accessToken');
-            dispatch(loginUserSuccess())
-            if (!accessToken) {
-                await getAccessToken();
-            }
+            accessToken ? dispatch(loginUserSuccess()) : await getAccessToken()
         };
 
         fetchAccessToken();
@@ -47,14 +44,14 @@ const Home = () => {
 
     const fetchLaptops = async (page, size) => {
         try {
-            const response = await instanceAxios8000.get(`/api/laptops/request-page`, {
+            const response = await instanceAxios8000.get(`/api/laptops`, {
                 params: {
                     page: page,
-                    size: size,
+                    limit: size,
                 },
             });
-            setLaptops(response.data.content);
-            setTotalPages(response.data.totalPages);
+            setLaptops(response.data.data);
+            setTotalPages(response.data.totalPage);
         } catch (error) {
             console.error("Error fetching laptops:", error);
         }
@@ -80,16 +77,11 @@ const Home = () => {
     //
     // }
 
-    if (!Array.isArray(laptops)) {
-        console.error('Expected laptops to be an array, but got:', laptops);
-        return <div>No laptops available</div>;
-    }
 
     const handleAddToCart = (laptop) => {
         dispatch(addToCart(laptop));
         window.alert('Sản phẩm đã được thêm vào giỏ hàng!');
     };
-
 
 
     return (
@@ -250,50 +242,54 @@ const Home = () => {
 
                         <div
                             className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-3 lg:grid-cols-5 xl:gap-x-8">
-                            {laptops.map((laptop) => (
-                                <div
-                                    key={laptop.laptopId}
-                                    className="group relative border-2 dark:bg-gray-800 rounded-lg shadow-md p-2"
-                                >
-                                    <Link to={`/productdetail/${laptop.laptopId}`}>
-                                        <div
-                                            className="aspect-h-1 aspect-w-1 w-auto overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-40">
-                                            <img
-                                                src={laptop.image}
-                                                className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                                            />
-                                        </div>
-                                        <div className="mt-4 flex justify-between">
-                                            <div>
-                                                <h3 className="text-sm text-gray-700">
-                                                    <a className="text-gray-700 no-underline">
-                            <span
-                                aria-hidden="true"
-                                className="absolute inset-0"
-                            />
-                                                        {laptop.model}
-                                                    </a>
-                                                </h3>
-                                                <p className="mt-1 text-sm text-gray-500 line-through">
-                                                    {laptop.price.toLocaleString('vi-VN')} VND
-                                                </p>
-                                                <p className="text-lg mb-3 font-medium text-red-600">
-                                                    {(laptop.specialPrice && laptop.specialPrice !== 0
-                                                        ? laptop.specialPrice
-                                                        : laptop.price)?.toLocaleString('vi-VN')} VND
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                    <button
-                                        type=""
-                                        onClick={() => handleAddToCart(laptop)}
-                                        className="group relative flex w-full justify-center rounded-md border border-transparent bg-yellow-500 px-4 py-2 text-sm font-medium text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-700 dark:border-transparent dark:hover:bg-indigo-600 dark:focus:ring-indigo-400 dark:focus:ring-offset-2 disabled:cursor-wait disabled:opacity-50"
+                            {!Array.isArray(laptops) || laptops.length === 0 ? (
+                                    <div>Không có laptop phù hợp</div>
+                                )
+                                :
+                                laptops.map((laptop) => (
+                                    <div
+                                        key={laptop.laptopId}
+                                        className="group relative border-2 dark:bg-gray-800 rounded-lg shadow-md p-2 w-"
                                     >
-                                        Thêm vào giỏ hàng
-                                    </button>
-                                </div>
-                            ))}
+                                        <Link to={`/productdetail/${laptop.laptopId}`}>
+                                            <div
+                                                className="aspect-h-1 aspect-w-1 w-auto overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-40">
+                                                <img
+                                                    src={laptop.image}
+                                                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                                />
+                                            </div>
+                                            <div className="mt-4 flex justify-between">
+                                                <div className="w-full">
+                                                    <h3 className="text-sm text-gray-700 truncate"> {/* Truncate để giới hạn độ dài tên */}
+                                                        <a className="text-gray-700 no-underline">
+                                                            <span aria-hidden="true" className="absolute inset-0"/>
+                                                            {laptop.model}
+                                                        </a>
+                                                    </h3>
+                                                    <p className="mt-1 text-sm text-gray-500 line-through">
+                                                        {laptop.price.toLocaleString('vi-VN')} VND
+                                                    </p>
+                                                    <p className="text-lg mb-3 font-medium text-red-600">
+                                                        {(
+                                                            laptop.specialPrice && laptop.specialPrice !== 0
+                                                                ? laptop.specialPrice
+                                                                : laptop.price
+                                                        )?.toLocaleString('vi-VN')} VND
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                        <button
+                                            type=""
+                                            onClick={() => handleAddToCart(laptop)}
+                                            className="group relative flex w-full justify-center rounded-md border border-transparent bg-yellow-500 px-4 py-2 text-sm font-medium text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-700 dark:border-transparent dark:hover:bg-indigo-600 dark:focus:ring-indigo-400 dark:focus:ring-offset-2 disabled:cursor-wait disabled:opacity-50"
+                                        >
+                                            Thêm vào giỏ hàng
+                                        </button>
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
                     <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>

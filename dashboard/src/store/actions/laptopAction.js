@@ -2,10 +2,10 @@ import {instanceAxios8000} from "../../config/axiosConfig";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 
 // Tạo async thunk để fetch sản phẩm
-export const getLaptops = createAsyncThunk('laptops/fetchLaptops', async (_, thunkAPI) => {
+export const getLaptops = createAsyncThunk('laptops/fetchLaptops', async (payload, thunkAPI) => {
     try {
-        const response = await instanceAxios8000.get('/api/laptops');
-        return response.data;
+        const response = await instanceAxios8000.get('/api/laptops', payload);
+        return response.data.data;
     } catch (error) {
         thunkAPI.rejectWithValue(error.response.data);
     }
@@ -59,10 +59,7 @@ export const createLaptop = createAsyncThunk('laptops/createLaptop', async (payl
 
 export const updateLaptop = createAsyncThunk('laptops/updateLaptop', async (payload, thunkAPI) => {
     try {
-        const { laptopId, ...updateField } = payload;
-        console.log('check laptopId', laptopId);
-        console.log('check updateField', updateField);
-        const response = await instanceAxios8000.put(`/api/laptops/${laptopId}`, updateField);
+        const response = await instanceAxios8000.put(`/api/laptops`, payload);
         return payload;
     } catch (error) {
         thunkAPI.rejectWithValue(error.response.data);

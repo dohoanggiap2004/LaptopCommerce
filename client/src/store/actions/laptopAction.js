@@ -14,7 +14,7 @@ export const getLaptops = createAsyncThunk('laptops/fetchLaptops', async (_, thu
 export const getLaptopById = createAsyncThunk('laptops/fetchLaptopById', async (payload, thunkAPI) => {
     try {
         const response = await instanceAxios8000.get(`/api/laptops/${payload}`);
-        return response.data;
+        return response.data.data;
     }catch (error) {
         thunkAPI.rejectWithValue(error.response.data);
     }
@@ -38,11 +38,10 @@ export const getLaptopByModel2 = createAsyncThunk('laptops/fetchLaptopByModel2',
     try {
         const response = await instanceAxios8000.get(`/api/laptops/search`,{
             params: {
-                keyword: payload,
-                page: 1,
+                model: payload,
             }
         });
-        return response.data.content;
+        return response.data.data;
     } catch (error) {
         thunkAPI.rejectWithValue(error.response.data);
     }
@@ -90,7 +89,7 @@ export const deleteLaptop = createAsyncThunk('laptops/deleteLaptop', async (payl
 export const getLaptopsElasticByUserId = createAsyncThunk('laptops/fetchLaptopElasticByUserId', async (payload, thunkAPI) => {
     try {
         const response = await instanceAxios8000.get(`/api/elastic/recommendations/${payload}`);
-        return response.data;
+        return response.data.data;
     }catch (error) {
         thunkAPI.rejectWithValue(error.response.data);
     }
@@ -98,11 +97,9 @@ export const getLaptopsElasticByUserId = createAsyncThunk('laptops/fetchLaptopEl
 
 export const getLaptopsViewedByUserId = createAsyncThunk('laptops/fetchLaptopViewedByUserId', async (payload, thunkAPI) => {
     try {
-        console.log('check payload', payload)
-        const response = await instanceAxios8000.get(`/api/elastic/view-history/${payload}`);
-        console.log('check response', response.data)
+        const response = await instanceAxios8000.get(`/api/view-history/${payload}`);
 
-        return response.data;
+        return response.data.data;
     }catch (error) {
         thunkAPI.rejectWithValue(error.response.data);
     }

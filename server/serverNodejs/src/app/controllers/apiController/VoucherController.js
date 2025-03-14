@@ -5,7 +5,7 @@ const {
     createNewVoucherService,
     updateVoucherService,
     deleteVoucherService,
-} = require('../../../services/voucherService')
+} = require('../../../services/apiService/voucherService')
 
 class VoucherController {
     async getVouchers(req, res) {

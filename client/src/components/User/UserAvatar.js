@@ -4,11 +4,11 @@ import ConfirmModal from "../Modal/ConfirmModal";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../store/actions/authAction.js";
 import {getUserId} from "../../Utils/decodeToken";
+import {useUserIdFromToken} from "../../Utils/User";
 const UserAvatar = ({ handleLogOut }) => {
   const [isLogout, setIsLogout] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [userId, setUserId] = useState();
   const dispatch = useDispatch();
 
   const toggleMenu = () => {
@@ -32,11 +32,7 @@ const UserAvatar = ({ handleLogOut }) => {
       handleLogout();
     }
   }, [isLogout]);
-  
-  useEffect(() => {
-    const id = getUserId()
-    setUserId(id)
-  }, [])
+  const { userId } = useUserIdFromToken()
 
   return (
     <>

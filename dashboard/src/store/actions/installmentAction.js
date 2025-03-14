@@ -4,7 +4,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 export const getInstallments = createAsyncThunk('installments/fetchInstallments', async (_, thunkAPI) => {
     try {
         const response = await instanceAxios8000.get('/api/installments');
-        return response.data;
+        return response.data.data;
     } catch (error) {
         thunkAPI.rejectWithValue(error.response.data);
     }

@@ -69,11 +69,6 @@ export default function Orders() {
     //     },
     // ];
 
-    if (!Array.isArray(orders)) {
-        console.error('Expected orders to be an array, but got:', orders);
-        return <div>No orders available</div>;
-    }
-
     const handleSearch = (value) => {
         console.log(value);
     }
@@ -111,6 +106,11 @@ export default function Orders() {
                                 </th>
                             </tr>
                             </thead>
+                            {!Array.isArray(orders) || orders.length === 0 ? (
+                            <div className={'flex items-center justify-center mt-4 '}>
+                                <h1>Không tìm thấy</h1>
+                            </div>
+                            ) :
                             <tbody>
                             {orders.map((order) => (
 
@@ -156,6 +156,7 @@ export default function Orders() {
 
                             ))}
                             </tbody>
+                            }
                         </table>
                     </div>
                 </div>

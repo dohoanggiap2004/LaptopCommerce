@@ -43,17 +43,21 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING(255), // Chỉnh độ dài theo bảng
   },
   createdAt: {
-    type: DataTypes.DATE(6), // Khớp với kiểu datetime(6)
+    type: DataTypes.DATE,
+    allowNull: true,
+    defaultValue: DataTypes.NOW,
   },
   updatedAt: {
-    type: DataTypes.DATE(6), // Thêm trường updatedAt
-  },
+    type: DataTypes.DATE,
+    allowNull: true,
+    defaultValue: DataTypes.NOW,
+  }
 }, {
-  tableName: 'users', // Đảm bảo trùng tên bảng trong MySQL
-  timestamps: false,  // Không tự động tạo createdAt và updatedAt nếu chúng đã được định nghĩa
+  tableName: 'users',
+  timestamps: true,
+  charset: 'utf8mb4',
+  collate: 'utf8mb4_general_ci'
 });
 
 module.exports = User;
 
-
-module.exports = User;

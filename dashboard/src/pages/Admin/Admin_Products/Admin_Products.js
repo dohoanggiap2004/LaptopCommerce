@@ -24,15 +24,14 @@ export default function Products() {
 
     const searchLaptops = async (value, page, size) => {
         try {
-            const response = await instanceAxios8000.get(`/api/laptops/search`, {
+            const response = await instanceAxios8000.get(`/api/laptops`, {
                 params: {
-                    keyword: value,
                     page: page,
-                    size: size,
+                    limit: 10,
                 },
             });
-            setLaptops(response.data.content);
-            setTotalPages(response.data.totalPages);
+            setLaptops(response.data.data);
+            setTotalPages(response.data.totalPage);
         } catch (error) {
             console.error("Error fetching laptops:", error);
         }

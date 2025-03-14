@@ -206,3 +206,63 @@
 2024-11-28/07:30:51		7c46f008-edcd-4f95-9980-d8da562952a9		TypeError: userRole.map is not a function
 2024-11-28/07:31:32		2defb30e-b53e-4889-a579-dbc86ff79b8d		TypeError: userRole.map is not a function
 2024-12-05/01:53:28		859bcf41-ecb7-4845-ad41-e29210fa961c		Error: Not allowed to CORS
+2025-02-12/05:05:02		5059887f-340a-43e0-bb89-2a822c3d27fd		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:11:33		2b1cc737-4c2c-4509-98c8-5e7c7c02cf41		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:11:33		77ac9acb-8f1f-4f01-9e84-51987a5b94ff		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:11:33		eb7628a4-22a9-4a07-9619-cb12ab4d04c4		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:11:33		65afdfb7-33a4-466e-a549-eb5b168239ff		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:12:28		817a4acf-ba2c-4d44-b275-36d889a93f13		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:12:28		d1e44dec-0fb8-40f1-8bf5-8ce300ac5cd7		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:12:28		31daa824-baf5-4c38-a5ad-7379864f0503		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:12:28		fa5e4ba4-062c-4f5b-aea5-c5247236caab		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:22:03		2c7b774f-e9d8-4c51-8ce1-227ca9ea6224		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:22:03		5b0942db-36ad-43a8-892c-6e1645b7c975		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:22:03		be62371d-03cc-44c3-8429-2bca291a8069		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:22:03		a781f417-adfa-4ae5-8d89-e1dba9635111		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:26:39		77649827-59d3-411e-a0d9-88263236e90b		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:26:39		cb75f3ca-6739-4a8d-9770-03019854a58a		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:26:39		c350a62b-f8ae-4151-99d2-0fdc94189d1c		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/02:26:39		9d614598-f8cd-44e9-a464-a2d148491ed3		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:15		17022fd8-92de-4c76-b56e-54c58847dcfa		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:15		0f76cde9-bdfc-4f4f-8e88-d56ebcdbd78c		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:15		bec6f3fd-1b3e-4d06-9996-b1403ca6b665		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:15		ba720974-0a7b-4bc5-939a-b2236b5a57c3		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:24		30b0c1d6-a499-4b93-bf0e-fb95b13b73c9		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:24		d57c8521-0a1a-43db-9973-c7ebefdda883		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:24		246be0c9-b651-4b63-a9a8-61bd7f79af52		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:24		f5e87026-995c-4e71-994b-1a15dc165a09		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:55		3065cc32-5faa-4ada-b524-01e394e7378c		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:55		f9daa11d-a2be-4888-b518-cc23f55cb48a		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:55		ede0ecfb-017f-44c9-aea7-5a3aadd83a05		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:17:55		fafc2602-ae1d-4411-8696-82b0774c01a4		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:18:45		4fab6dc2-51a7-4864-af35-754878061fd8		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:18:45		cf841ac9-918a-40ac-9ce4-0938277f43b5		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:18:45		91dcd1e7-d024-4f17-aab3-250191a7070b		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:18:45		255a0124-18a5-4118-b3df-5b2f144b7311		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/03:19:50		599d85bf-40fa-49ce-b34c-74b7a03befa8		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-03/04:09:24		31f0ea44-55b6-40b8-b1b5-9e623cac58f2		TypeError: Cannot read properties of undefined (reading 'role')
+2025-03-04/09:54:04		f28872d3-de4c-4ab6-bd72-331799562734		Error: Not allowed to CORS
+2025-03-11/02:57:27		c63d4547-c8f1-48f1-90b6-c6a967916baa		Error: Not allowed to CORS
+2025-03-11/02:57:27		94a9bf74-a7d3-460e-9ddf-1ed01bfecf2e		Error: Not allowed to CORS
+2025-03-11/02:57:27		99561503-555b-49c9-87a3-99051aef1744		Error: Not allowed to CORS
+2025-03-11/02:57:27		be469e1d-5190-4c06-aae2-7ffe7b37cb87		Error: Not allowed to CORS
+2025-03-11/02:57:27		c0f38985-527d-4368-905e-44146b45d273		Error: Not allowed to CORS
+2025-03-11/02:57:27		da508a33-61e6-48fd-ad07-6a60e9d24c93		Error: Not allowed to CORS
+2025-03-11/02:57:27		c416470e-a821-4b9c-9fd3-dd700453340e		Error: Not allowed to CORS
+2025-03-11/02:57:27		1a37805a-c2a9-4a3a-a269-277b74124f71		Error: Not allowed to CORS
+2025-03-11/10:18:50		6901b95e-c6a7-4a1f-9e04-abe5809b6c73		Error: Not allowed to CORS
+2025-03-11/10:18:50		a5bcff24-d3eb-4559-a975-5a9d1efff3e1		Error: Not allowed to CORS
+2025-03-11/10:18:50		ba560034-2d91-4dbd-8d0e-1579c024df6e		Error: Not allowed to CORS
+2025-03-11/10:18:50		06dd7c9d-e743-42ea-8a06-34c5d5e0632b		Error: Not allowed to CORS
+2025-03-11/10:18:50		a27cd3eb-6fad-488b-9701-2f1ff411f598		Error: Not allowed to CORS
+2025-03-11/10:18:50		dfb453f2-17d2-4524-b479-2473b524e20e		Error: Not allowed to CORS
+2025-03-11/10:18:50		459a8c0a-bbe4-46ff-9440-f57edda36ea3		Error: Not allowed to CORS
+2025-03-11/10:18:50		8e045859-e925-4d38-97cb-c31db548ee20		Error: Not allowed to CORS
+2025-03-12/08:04:36		0219eed6-5696-427e-84a2-8c335d0b47e0		Error: Not allowed to CORS
+2025-03-12/08:04:36		7cccce5a-d25d-4a3d-b0b2-265d426ce987		Error: Not allowed to CORS
+2025-03-12/08:04:36		298743a8-1059-4926-a888-9f070c2eea20		Error: Not allowed to CORS
+2025-03-12/08:04:36		ad679674-12d5-42a6-9bb6-88024e543cc6		Error: Not allowed to CORS
+2025-03-12/08:04:36		200f2667-7177-4d19-929e-5609a582a27f		Error: Not allowed to CORS
+2025-03-12/08:04:36		5e223dfc-439e-4f22-8a13-5599a2de7623		Error: Not allowed to CORS
+2025-03-12/08:04:36		81d5654c-1ed3-4e98-8a14-1be32514affc		Error: Not allowed to CORS
+2025-03-12/08:04:36		050c1e00-db8a-4875-8bbd-523d90cbf14d		Error: Not allowed to CORS

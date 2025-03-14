@@ -4,7 +4,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 export const getUsers = createAsyncThunk('users/fetchUsers', async (_, thunkAPI) => {
     try {
         const response = await instanceAxios8000.get('/api/users');
-        return response.data;
+        return response.data.data;
     } catch (error) {
         thunkAPI.rejectWithValue(error.response.data);
     }

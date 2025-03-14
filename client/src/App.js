@@ -9,6 +9,7 @@ import Register from "./pages/Register/Register";
 import Cart from "./pages/Cart/Cart";
 import Estimation from "./pages/Estimation/Estimation";
 import UserProfile from "./pages/User/UserProfile";
+import Booking from "./pages/Booking/Booking";
 import Unauthorized from "./pages/Unauthozired/Unauthozired";
 import RoleProtectedRoute from "./Utils/verifyRole";
 import store from "./store/reducers/store";
@@ -33,6 +34,7 @@ function App() {
                                        </RoleProtectedRoute>
                                    }/>
                             <Route path="/login" element={<Login/>}/>
+                            <Route path="/booking" element={<Booking/>}/>
                             <Route path="/comparison" element={<Comparison/>}/>
                             <Route path="/productdetail/:id" element={<ProductDetail/>}/>
                             <Route path="/register" element={<Register/>}/>

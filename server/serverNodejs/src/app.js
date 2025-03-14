@@ -11,16 +11,19 @@ const { logger } = require("./middlewares/logEvents");
 const corsOptions = require("./config/corsOptions");
 const localPassport = require('./config/localPassport')
 const googlePassport = require('./config/googlePassport')
-const { connectionSequelize } = require('./config/sequelizeConnect')
+const { connectionSequelize, syncDatabase } = require('./config/sequelizeConnect')
 // const verifyJWT = require("./middleware/verifyJWT");
 const credentials = require("./middlewares/credentials");
+//banking
+
+
 
 const app = express();
 const port = process.env.PORT || 3500
 
 //connect to db
 connectionSequelize()
-
+// syncDatabase()
 // Custom middleware Logger
 app.use(logger);
 

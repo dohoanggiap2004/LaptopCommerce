@@ -3,7 +3,7 @@ const { sequelize } = require('../../config/sequelizeConnect');
 
 const OrderLaptop = sequelize.define('OrderLaptop', {
     laptopId: {
-        type: DataTypes.STRING,
+        type: DataTypes.CHAR(36),
         primaryKey: true,
         allowNull: false
     },
@@ -19,10 +19,20 @@ const OrderLaptop = sequelize.define('OrderLaptop', {
     totalPrice: {
         type: DataTypes.INTEGER,
         allowNull: true
+    },
+    createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: DataTypes.NOW,
     }
 }, {
     tableName: 'orders_laptops',
-    timestamps: false,
+    timestamps: true,
     charset: 'utf8mb4',
     collate: 'utf8mb4_general_ci'
 });

@@ -1,4 +1,4 @@
-const { createOrderService } = require('../../../services/orderService')
+const { createOrderService, trackingOrderByUserIdService } = require('../../../services/apiService/orderService')
 
 class OrderController{
 
@@ -23,6 +23,24 @@ class OrderController{
         }
     }
 
+    async trackingOrderByUserId(req, res) {
+        try {
+            if (!req?.params)
+                return res.status(400).json({ message: "user information is required" });
+            console.log('check user id', req.params)
+            const userId = req.params.userId
+
+            const ordersInfo = await trackingOrderByUserIdService( userId );
+
+            res.status(201).json({
+                ordersInfo: ordersInfo,
+            });
+
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: "Internal Server Error" });
+        }
+    }
 }
 
 module.exports = new OrderController();

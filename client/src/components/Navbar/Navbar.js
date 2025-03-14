@@ -307,7 +307,36 @@ const Navbar = () => {
                                             <p className="mt-1 text-gray-600">Giúp bạn tìm ra Laptop mong muốn</p>
                                         </div>
                                     </Link>
+
+                                    <Link to={'/booking'}
+
+                                          className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                                    >
+                                        <div
+                                            className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"
+                                                 className={'h-6 w-6'}>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M2 4h9v1H3v15h8v1H2zm10 19h1V2h-1zM8.283 10.283l-.566-.566L4.934 12.5l2.783 2.783.566-.566L6.566 13H11v-1H6.566zM14 12h4.08l-1.54-1.54.92-.92 2.96 2.96-2.96 2.96-.92-.92L18.08 13H14v8h9V4h-9z"></path>
+                                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div className="flex-auto">
+                                            <a
+
+                                                className="block font-semibold text-gray-900"
+                                            >
+                                                ĐẶT LỊCH
+                                                <span className="absolute inset-0"/>
+                                            </a>
+                                            <p className="mt-1 text-gray-600">Chọn thời gian phù hợp để sửa chữa máy tính của bạn</p>
+                                        </div>
+                                    </Link>
                                 </div>
+
+
 
                             </PopoverPanel>
                         </Popover>

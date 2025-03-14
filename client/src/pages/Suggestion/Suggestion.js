@@ -19,21 +19,12 @@ const Suggestion = () => {
     }, []);
 
     useEffect(() => {
-        console.log('check userid', userId)
         dispatch(getLaptopsViewedByUserId(userId))
     }, [userId]);
 
     useEffect(() => {
-        console.log('check userid', userId)
         dispatch(getLaptopsElasticByUserId(userId))
     }, [userId]);
-
-    useEffect(() => {
-
-        console.log('check laptop viewed', laptopsViewed)
-
-        console.log('check laptop elastic', laptopsElastic)
-    }, [laptopsViewed, laptopsElastic]);
 
     useEffect(() => {
         dispatch(getCountProductSales())
@@ -80,8 +71,8 @@ const Suggestion = () => {
                                                 />
                                             </div>
                                             <div className="mt-4 flex justify-between">
-                                                <div>
-                                                    <h3 className="text-sm text-gray-700">
+                                                <div className={'w-full'}>
+                                                    <h3 className="text-sm text-gray-700 truncate">
                                                         <a className="text-gray-700 no-underline">
                             <span
                                 aria-hidden="true"
@@ -149,8 +140,8 @@ const Suggestion = () => {
                                             />
                                         </div>
                                         <div className="mt-4 flex justify-between">
-                                            <div>
-                                                <h3 className="text-sm text-gray-700">
+                                            <div className={'w-full'}>
+                                                <h3 className="text-sm text-gray-700 truncate">
                                                     <a className="text-gray-700 no-underline">
                             <span
                                 aria-hidden="true"

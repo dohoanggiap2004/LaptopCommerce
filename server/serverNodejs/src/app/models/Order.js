@@ -51,10 +51,20 @@ const Order = sequelize.define('Order', {
     voucherId: {
         type: DataTypes.BIGINT,
         allowNull: true
+    },
+    createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: DataTypes.NOW,
     }
 }, {
     tableName: 'orders',
-    timestamps: false,
+    timestamps: true,
     charset: 'utf8mb4',
     collate: 'utf8mb4_general_ci'
 });

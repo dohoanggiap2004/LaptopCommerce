@@ -4,7 +4,7 @@ const {
   createUserService,
   updateUserService,
   deleteUserService,
-} = require("../../../services/userService");
+} = require("../../../services/apiService/userService");
 class UserController {
   async getUsers(req, res) {
     try {

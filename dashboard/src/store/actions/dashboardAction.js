@@ -67,9 +67,9 @@ export const getOrderQuantity = createAsyncThunk('dashboard/getOrderQuantity',
 export const getBrandSold = createAsyncThunk('dashboard/getBrandSold',
     async (_, thunkAPI) => {
         try {
-            const response = await instanceAxios8000.get('api/brands/laptop-stats');
+            const response = await instanceAxios8000.get('api/statistics/brand-sold');
             console.log(response.data);
-            return response.data;
+            return response.data.data;
         } catch (e) {
             console.error("Error fetching quantity sold of brand:", e);
             return thunkAPI.rejectWithValue(e.response ? e.response.data : "Network Error");

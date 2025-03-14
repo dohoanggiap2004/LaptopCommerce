@@ -5,7 +5,7 @@ export const getOrders = createAsyncThunk('orders/fetchOrders', async (_, thunkA
     try {
         const response = await instanceAxios8000.get('/api/orders');
         console.log(response);
-        return response.data;
+        return response.data.data;
     } catch (error) {
         thunkAPI.rejectWithValue(error.response.data);
     }

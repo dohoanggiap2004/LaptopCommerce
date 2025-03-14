@@ -1,14 +1,15 @@
 const {
     createNewViewService
-} = require('../../../services/viewService')
+} = require('../../../services/apiService/viewService')
 const ViewHistory = require('../../models/View_History')
+const {Laptop} = require("../../models");
 
 class ViewHistoryController {
 
     async createNewView(req, res) {
         try {
             if (!req?.body) {
-                return res.status(400).send({ message: "View info is required" });
+                return res.status(400).send({message: "View info is required"});
             }
 
             const view = req.body;
@@ -34,10 +35,39 @@ class ViewHistoryController {
             });
         } catch (e) {
             console.error(e);
-            res.status(500).send({ error: e });
+            res.status(500).send({error: e});
         }
     }
 
+
+    async getViewHistoryByUserId(req, res) {
+        try {
+            const viewHistory = await ViewHistory.findAll({
+                where: {
+                    userId: req.params.userId,
+                },
+                attributes: ['laptopId'],
+                limit: 10,
+                order: [['createdAt', 'DESC']],
+            });
+
+
+            // Lấy danh sách laptopId từ viewHistory
+            const laptopIds = viewHistory.map(item => item.laptopId);
+
+            // Lặp qua danh sách laptopId để lấy thông tin laptop
+            const laptops = await Laptop.findAll({
+                where: {
+                    laptopId: laptopIds
+                }
+            });
+
+            res.status(200).json({data: laptops});
+        } catch (error) {
+            console.error('Error indexing laptops:', error);
+            res.status(500).json({message: 'Failed to index laptops', error});
+        }
+    }
 
 }
 

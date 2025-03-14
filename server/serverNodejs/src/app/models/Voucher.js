@@ -18,10 +18,22 @@ const Voucher = sequelize.define('Vouchers', {
         },
         description: {
             type: DataTypes.STRING(255),
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: true,
+            defaultValue: DataTypes.NOW,
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: true,
+            defaultValue: DataTypes.NOW,
         }
     }, {
         tableName: 'Vouchers',
-        timestamps: false,
+        timestamps: true,
+        charset: 'utf8mb4',
+        collate: 'utf8mb4_general_ci'
     }
 )
 

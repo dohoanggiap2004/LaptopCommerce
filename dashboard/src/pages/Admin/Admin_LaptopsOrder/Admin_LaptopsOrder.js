@@ -67,10 +67,6 @@ export default function LaptopsOrder() {
         }
     ];
 
-    if (!Array.isArray(laptopsOrder)) {
-      console.error('Expected orders to be an array, but got:', laptopsOrder);
-      return <div>No orders available</div>;
-    }
 
     const handleSearch = (value) => {
         console.log(value);

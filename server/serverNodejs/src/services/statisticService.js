@@ -49,10 +49,43 @@ const countOrdersService = async () => {
     return data
 }
 
+const countLaptopOfBrandSold = async () => {
+    const [rows] = await sequelize.query(
+        'SELECT \n' +
+        '    l.manufacturer,\n' +
+        '    SUM(ol.quantity) AS total_sold\n' +
+        'FROM \n' +
+        '    laptops l\n' +
+        'JOIN \n' +
+        '    orders_laptops ol ON l.laptopId = ol.laptopId\n' +
+        'JOIN \n' +
+        '    orders o ON ol.orderId = o.orderId\n' +
+        'WHERE \n' +
+        '    o.status = \'Đã giao\'\n' +
+        'GROUP BY \n' +
+        '    l.manufacturer\n' +
+        'ORDER BY \n' +
+        '    total_sold DESC;');
+    const topSix = rows.slice(0, 6); // Lấy 6 hãng đầu tiên
+    const others = rows.slice(6);    // Lấy các hãng còn lại
+
+    // Tính tổng total_sold của các hãng còn lại (nếu có)
+    const othersTotalSold = others.reduce((sum, row) => sum + Number(row.total_sold), 0);
+
+    // Tạo kết quả cuối cùng
+    const result = [
+        ...topSix, // Giữ nguyên 6 hãng đầu
+        ...(others.length > 0 ? [{ manufacturer: 'Hãng khác', total_sold: othersTotalSold }] : []) // Thêm "Hãng khác" nếu có
+    ];
+
+    return result;
+}
+
 module.exports = {
     countUsersService,
     calculateRevenueService,
     countProductSalesService,
     countAvailableProductsService,
-    countOrdersService
+    countOrdersService,
+    countLaptopOfBrandSold
 }
